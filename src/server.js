@@ -1,6 +1,7 @@
 import express from 'express';
 import 'dotenv/config';
 import cors from 'cors';
+import { errors as celebrateErrors } from 'celebrate';
 
 import { connectMongoDB } from './db/connectMongoDB.js';
 import { logger } from './middleware/logger.js';
@@ -21,6 +22,9 @@ app.use(notesRoutes);
 
 // 404 handler
 app.use(notFoundHandler);
+
+// Celebrate validation errors
+app.use(celebrateErrors());
 
 // Error handler
 app.use(errorHandler);
