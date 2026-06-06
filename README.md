@@ -28,3 +28,17 @@
 - Added PATCH /notes/:noteId route to update notes
 - Added DELETE /notes/:noteId route to delete notes
 - Removed the old /test-error route
+
+## Homework 3: Filtering, pagination and validation
+
+**What was added (Update)**
+- Moved tags list to src/constants/tags.js
+- Added index to tag field in the Note schema
+- Added filtering for GET /notes by tag and search (title, content)
+- Added pagination for GET /notes with page and perPage query params
+- GET /notes now returns page, perPage, totalNotes, totalPages and notes
+- Installed celebrate and joi for request validation
+- Created validation schemas in src/validations/notesValidation.js
+- Added validation middleware to all note routes
+- Added celebrate errors handler in server.js
+- Deployed branch 03-validation to render.com

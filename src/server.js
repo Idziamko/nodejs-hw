@@ -23,7 +23,7 @@ app.use(notesRoutes);
 // 404 handler
 app.use(notFoundHandler);
 
-// Celebrate validation errors
+// celebrate validation errors handler
 app.use(celebrateErrors());
 
 // Error handler

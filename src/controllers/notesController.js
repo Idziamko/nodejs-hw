@@ -6,6 +6,7 @@ export const getAllNotes = async (req, res, next) => {
   try {
     const { page, perPage, tag, search } = req.query;
 
+    // build filter from query params
     const filter = {};
 
     if (tag) {
@@ -21,6 +22,7 @@ export const getAllNotes = async (req, res, next) => {
 
     const skip = (page - 1) * perPage;
 
+    // count and find at the same time to be a bit faster
     const [totalNotes, notes] = await Promise.all([
       Note.countDocuments(filter),
       Note.find(filter).skip(skip).limit(perPage),
