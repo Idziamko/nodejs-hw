@@ -42,3 +42,21 @@
 - Added validation middleware to all note routes
 - Added celebrate errors handler in server.js
 - Deployed branch 03-validation to render.com
+
+## Homework 4: Auth, sessions, cookies and private notes
+
+**What was added (Update)**
+- Installed bcrypt and cookie-parser
+- Added User model with username, email, password
+- Hidden password from json response via toJSON method
+- Added pre('save') hook to set username from email by default
+- Added Session model with access and refresh tokens and their expiration dates
+- Added time constants in src/constants/time.js
+- Added auth service with createSession and setSessionCookies helpers
+- Added auth validation schemas (registerUserSchema, loginUserSchema)
+- Added auth controller with register, login, refresh and logout
+- Added authenticate middleware that checks accessToken cookie
+- Notes model now has required userId field
+- Notes routes are protected by authenticate middleware
+- Each note operation works only with notes of the current user
+- Deployed branch 04-auth to render.com
