@@ -60,3 +60,20 @@
 - Notes routes are protected by authenticate middleware
 - Each note operation works only with notes of the current user
 - Deployed branch 04-auth to render.com
+
+## Homework 5: Password reset email and avatar upload
+
+**What was added (Update)**
+- Installed nodemailer, jsonwebtoken, handlebars, cloudinary and multer
+- Added new env vars: JWT_SECRET, FRONTEND_DOMAIN, SMTP_*, CLOUDINARY_*
+- Added avatar field to the User model with a default url
+- Added HTML email template src/templates/reset-password-email.html
+- Added sendEmail utility using nodemailer and Brevo SMTP
+- Added POST /auth/request-reset-email route that sends a reset link with JWT
+- Added POST /auth/reset-password route that verifies the JWT and updates the password
+- Added multer middleware that stores files in memory, limits to 2MB and accepts only images
+- Added saveFileToCloudinary utility that uploads buffers via upload_stream
+- Added userRoutes and updateUserAvatar controller
+- Added PATCH /users/me/avatar route protected by authenticate and upload middleware
+- Moved authenticate to per-route in notesRoutes so 404 works for unknown paths
+- Deployed branch 05-mail-and-img to render.com
